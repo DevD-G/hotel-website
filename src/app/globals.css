@@ -1,26 +1,157 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --color-primary: #0C5DCD;
+  --color-primary-dark: #08459b;
+  --color-primary-light: #e8f0fc;
+  --color-gold: #B79562;
+  --color-gold-light: #d4b88a;
+  --color-cream: #FFFCEB;
+  --color-light-gray: #eef2f7;
+  --color-brown: #926343;
+  --color-navy: #0a1628;
+  --font-jost: 'Jost', sans-serif;
+  --font-palanquin: 'Palanquin', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Palanquin', sans-serif;
+  color: #333;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Jost', sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #B79562; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #0C5DCD; }
+
+/* Section divider — gold lines flanking text */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  height: 1px;
+  width: 50px;
+  background: linear-gradient(90deg, transparent, #B79562, transparent);
+}
+
+/* Date picker — make entire input clickable */
+input[type="date"] {
+  cursor: pointer;
+  position: relative;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Accordion */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, opacity 0.3s ease;
+  opacity: 0;
+}
+.accordion-content.open {
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* Image placeholders */
+.image-placeholder {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Placeholder gradient themes */
+.ph-hero { background: linear-gradient(135deg, #1a1a2e, #16213e 25%, #0f3460 50%, #533483 75%, #1a1a2e); }
+.ph-room { background: linear-gradient(135deg, #2c1810, #4a2c1a 30%, #6b4423 60%, #8b6914); }
+.ph-lobby { background: linear-gradient(135deg, #1a0f0a, #3d2b1f 30%, #6b4226 50%, #b79562); }
+.ph-dining { background: linear-gradient(135deg, #1a0a00, #4a1a0a 30%, #8b4513 50%, #cd853f); }
+.ph-event { background: linear-gradient(135deg, #0a0a2e, #1a1a4e 30%, #2e2e6e 50%, #534ba0); }
+.ph-exterior { background: linear-gradient(135deg, #0a1628, #132743 30%, #1a4060 50%, #2a6090); }
+
+/* Shimmer on placeholders */
+.ph-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 4s ease-in-out infinite;
+}
+.ph-pattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: radial-gradient(circle at 25% 25%, white 1px, transparent 1px),
+                     radial-gradient(circle at 75% 75%, white 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 1;
+}
+
+/* Nav link underline */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #0C5DCD;
+  transition: width 0.4s ease, left 0.4s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes topBarSlide {
+  0%, 75% { opacity: 1; max-height: 50px; padding-top: 0.625rem; padding-bottom: 0.625rem; }
+  100% { opacity: 0; max-height: 0; padding-top: 0; padding-bottom: 0; overflow: hidden; }
+}
+.animate-float { animation: subtleFloat 4s ease-in-out infinite; }
+.animate-topbar { animation: topBarSlide 12s ease forwards; overflow: hidden; }
+
+/* Selection */
+::selection { background: #0C5DCD; color: white; }
