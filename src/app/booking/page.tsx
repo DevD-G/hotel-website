@@ -270,6 +270,34 @@ function BookingForm() {
         </div>
       </section>
 
+      {/* Maintenance Notice */}
+      <section className="py-20 px-6">
+        <div className="max-w-lg mx-auto text-center">
+          <div className="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-6">
+            <svg className="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.049.58.025 1.192-.14 1.743" /></svg>
+          </div>
+          <h2 className="text-2xl font-semibold text-[var(--color-navy)] font-jost mb-3">We&apos;re Doing Some Maintenance</h2>
+          <p className="text-gray-500 leading-relaxed mb-8">Our online booking system is currently under maintenance. Kindly contact us directly for bookings and we&apos;ll be happy to assist you.</p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/contact" className="bg-[var(--color-primary)] text-white px-8 py-3.5 rounded-xl font-semibold uppercase tracking-wider text-sm hover:bg-[var(--color-primary-dark)] transition-colors font-jost shadow-md">Contact Us</a>
+            <a href="tel:+917011080455" className="border-2 border-[var(--color-primary)] text-[var(--color-primary)] px-8 py-3.5 rounded-xl font-semibold uppercase tracking-wider text-sm hover:bg-[var(--color-primary)] hover:text-white transition-colors font-jost">Call +91 70110 80455</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+
+  // --- BOOKING FORM (temporarily disabled) ---
+  // eslint-disable-next-line no-unreachable
+  return (
+    <div>
+      <section className="bg-[var(--color-navy)] py-12 px-6">
+        <div className="max-w-5xl mx-auto text-center text-white">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold font-jost mb-3">Book Your Stay</h1>
+          <p className="text-gray-400">Select your property, dates, and room type</p>
+        </div>
+      </section>
+
       {/* Progress Steps */}
       <section className="bg-white border-b py-6 px-4">
         <div className="max-w-5xl mx-auto">

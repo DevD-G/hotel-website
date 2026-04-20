@@ -3,10 +3,10 @@ import ImagePlaceholder from '@/components/ImagePlaceholder';
 import { MapPin, Phone, Mail, Clock, Building2, ArrowRight } from 'lucide-react';
 
 const locations = [
-  { name: 'Sector 51 - Flagship', address: '1210P, Sector 51, Gurugram, Haryana, 122018', mapNum: 100, mapLabel: 'Map - Sector 51' },
-  { name: 'Sector 46 - Comfort Retreat', address: 'Sector 46, Gurugram, Haryana', mapNum: 99, mapLabel: 'Map - Sector 46' },
-  { name: 'Sector 42 - Urban Connect', address: 'Sector 42, Gurugram, Haryana', mapNum: 101, mapLabel: 'Map - Sector 42' },
-  { name: 'Sector 45 - Boutique Hotel', address: 'Sector 45, Gurugram, Haryana', mapNum: 98, mapLabel: 'Map - Sector 45' },
+  { name: 'Sector 51 - Flagship', address: '1210P, Sector 51, Gurugram, Haryana, 122018', mapNum: 39, mapLabel: 'Sector 51 Exterior' },
+  { name: 'Sector 46 - Comfort Retreat', address: 'Sector 46, Gurugram, Haryana', mapNum: 32, mapLabel: 'Sector 46 Exterior' },
+  { name: 'Sector 42 - Urban Connect', address: 'Sector 42, Gurugram, Haryana', mapNum: 46, mapLabel: 'Sector 42 Exterior' },
+  { name: 'Sector 45 - Boutique Hotel', address: 'Sector 45, Gurugram, Haryana', mapNum: 24, mapLabel: 'Sector 45 Exterior' },
 ];
 
 const contactInfo = [
