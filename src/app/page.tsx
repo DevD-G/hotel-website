@@ -75,11 +75,11 @@ export default function HomePage() {
           ))}
 
           {/* Gradient overlay */}
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.65))', zIndex: 3 }} />
+          <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.55)', zIndex: 3 }} />
 
           {/* Hero text */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-6" style={{ zIndex: 4 }}>
-            <p className="section-divider text-gold-light text-xs uppercase tracking-[0.4em] mb-6 font-jost">Welcome to Imperial Stayz</p>
+            <p className="text-white text-sm sm:text-base uppercase tracking-[0.4em] mb-6 font-jost font-medium drop-shadow-lg">Welcome to Imperial Stayz</p>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold font-jost mb-6 leading-tight tracking-tight">
               Where Elegance<br />Meets Comfort
             </h1>
