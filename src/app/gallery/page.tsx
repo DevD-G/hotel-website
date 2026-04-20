@@ -50,25 +50,25 @@ export default function GalleryPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative h-[350px]">
+      <section className="relative h-[400px]">
         <ImagePlaceholder number={97} label="Gallery Page Hero - Collage of Hotel Photos" className="w-full h-full !rounded-none" aspect="" />
         <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
           <div className="text-center text-white">
-            <p className="section-divider text-[var(--color-gold)] text-sm uppercase tracking-[0.3em] mb-3 font-[family-name:var(--font-jost)]">Photo Gallery</p>
-            <h1 className="text-4xl md:text-5xl font-semibold font-[family-name:var(--font-jost)]">Our Gallery</h1>
-            <p className="mt-3 text-gray-300">Explore our properties, rooms, dining, and event spaces</p>
+            <p className="section-divider text-[var(--color-gold)] text-xs uppercase tracking-[0.3em] mb-4 font-jost">Photo Gallery</p>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold font-jost">Our Gallery</h1>
+            <p className="mt-4 text-gray-300 max-w-xl mx-auto">Explore our properties, rooms, dining, and event spaces</p>
           </div>
         </div>
       </section>
 
       {/* Filter */}
-      <section className="py-8 px-4 bg-white border-b sticky top-20 z-30">
+      <section className="py-8 px-6 bg-white border-b sticky top-20 z-30">
         <div className="max-w-7xl mx-auto flex flex-wrap gap-3 justify-center">
           {categories.map((c) => (
             <button
               key={c.value}
               onClick={() => setFilter(c.value)}
-              className={`px-4 py-2 rounded-full text-sm font-semibold font-[family-name:var(--font-jost)] uppercase tracking-wider transition-colors ${
+              className={`px-4 py-2 rounded-full text-sm font-semibold font-jost uppercase tracking-wider transition-colors ${
                 filter === c.value ? 'bg-[var(--color-primary)] text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               }`}
             >
@@ -79,7 +79,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {filtered.map((img, i) => (
@@ -91,7 +91,7 @@ export default function GalleryPage() {
                 <ImagePlaceholder
                   number={img.num}
                   label={img.label}
-                  className="w-full h-60 group-hover:opacity-90 transition-opacity"
+                  className="w-full h-40 sm:h-48 lg:h-56 xl:h-60 group-hover:opacity-90 transition-opacity"
                   aspect=""
                 />
               </button>
@@ -116,9 +116,6 @@ export default function GalleryPage() {
               className="w-full h-[70vh]"
               aspect=""
             />
-            <p className="text-white text-center mt-4 font-[family-name:var(--font-jost)]">
-              #{filtered[lightbox].num}: {filtered[lightbox].label}
-            </p>
           </div>
         </div>
       )}

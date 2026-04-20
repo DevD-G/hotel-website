@@ -20,12 +20,12 @@ export default function ContactPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative" style={{ height: 300 }}>
+      <section className="relative" style={{ height: 400 }}>
         <ImagePlaceholder number={102} label="Contact Page Hero - Reception" className="w-full h-full !rounded-none" aspect="" />
         <div className="absolute inset-0 flex items-center justify-center" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7))' }}>
           <div className="text-center text-white px-6">
             <p className="section-divider text-gold text-xs uppercase tracking-[0.3em] mb-4 font-jost">Get in Touch</p>
-            <h1 className="text-4xl md:text-5xl font-semibold font-jost">Contact Us</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold font-jost">Contact Us</h1>
           </div>
         </div>
       </section>

@@ -31,22 +31,22 @@ export default function AmenitiesPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative h-[350px]">
+      <section className="relative h-[400px]">
         <ImagePlaceholder number={103} label="Amenities Hero - Modern Room with Amenities" className="w-full h-full !rounded-none" aspect="" />
         <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
           <div className="text-center text-white">
-            <p className="section-divider text-[var(--color-gold)] text-sm uppercase tracking-[0.3em] mb-3 font-[family-name:var(--font-jost)]">What We Offer</p>
-            <h1 className="text-4xl md:text-5xl font-semibold font-[family-name:var(--font-jost)]">Amenities & Facilities</h1>
-            <p className="mt-3 text-gray-300">Standardized excellence across all our properties</p>
+            <p className="section-divider text-[var(--color-gold)] text-xs uppercase tracking-[0.3em] mb-4 font-jost">What We Offer</p>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold font-jost">Amenities & Facilities</h1>
+            <p className="mt-4 text-gray-300 max-w-xl mx-auto">Standardized excellence across all our properties</p>
           </div>
         </div>
       </section>
 
       {/* Amenity Groups */}
       {amenityGroups.map((group, gi) => (
-        <section key={gi} className={`py-20 px-4 ${gi % 2 === 1 ? 'bg-[var(--color-light-gray)]' : ''}`}>
+        <section key={gi} className={`py-20 px-6 ${gi % 2 === 1 ? 'bg-[var(--color-light-gray)]' : ''}`}>
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-navy)] font-[family-name:var(--font-jost)] mb-10 text-center">{group.title}</h2>
+            <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-navy)] font-jost mb-10 text-center">{group.title}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {group.items.map((item, i) => (
                 <div key={i} className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow flex gap-4">
@@ -54,7 +54,7 @@ export default function AmenitiesPage() {
                     <item.icon className="w-7 h-7 text-[var(--color-primary)]" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[var(--color-navy)] font-[family-name:var(--font-jost)] mb-1">{item.name}</h3>
+                    <h3 className="font-semibold text-[var(--color-navy)] font-jost mb-1">{item.name}</h3>
                     <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>

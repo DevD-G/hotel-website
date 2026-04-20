@@ -10,10 +10,10 @@ const propertyOptions = [
   { value: 'sector-45', label: 'Imperial Stayz — Sector 45' },
 ];
 
-export default function BookingWidget() {
+export default function BookingWidget({ defaultProperty = 'sector-51' }: { defaultProperty?: string }) {
   const router = useRouter();
   const [form, setForm] = useState({
-    property: 'sector-51',
+    property: defaultProperty,
     checkin: '',
     checkout: '',
     adults: '2',
@@ -30,8 +30,8 @@ export default function BookingWidget() {
   const labelBase = "flex items-center gap-2 text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-2.5 font-jost";
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-2xl p-8 lg:p-10 border border-gray-100">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-x-6 gap-y-5 items-end">
+    <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-2xl p-5 sm:p-8 lg:p-10 border border-gray-100">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-x-4 sm:gap-x-6 gap-y-4 sm:gap-y-5 items-end">
         {/* Property */}
         <div className="lg:col-span-2">
           <label className={labelBase}><Home className="w-3 h-3" /> Property</label>
@@ -69,7 +69,7 @@ export default function BookingWidget() {
       </div>
 
       {/* Benefits strip */}
-      <div className="mt-6 pt-5 border-t border-gray-100 flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+      <div className="mt-6 pt-5 border-t border-gray-100 flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 lg:gap-x-8 gap-y-2">
         {['Best Rate Guarantee', 'Corporate Billing', 'No Hidden Charges', 'Instant Confirmation'].map((t) => (
           <span key={t} className="flex items-center gap-2 text-[11px] text-gray-400 font-jost">
             <span className="w-1 h-1 rounded-full bg-gold" /> {t}

@@ -4,7 +4,7 @@ import { MapPin, Star, ArrowRight } from 'lucide-react';
 
 const properties = [
   {
-    slug: 'sector-51', name: 'Sector 51', tag: 'Flagship Property', rooms: 15, type: 'Business Hotel',
+    slug: 'sector-51', name: 'Sector 51', tag: 'Flagship Property', rooms: 16, type: 'Business Hotel',
     vibe: 'Functional, quiet corporate base',
     proximity: 'Direct access to NH-48 corridor, near Sector 53-54 commercial belt, 15 mins to Cyber City.',
     idealFor: 'Extended corporate deployments, project teams, and professionals requiring highway connectivity.',
@@ -12,7 +12,7 @@ const properties = [
     imgNum: 21, imgLabel: 'Sector 51 Property Exterior',
   },
   {
-    slug: 'sector-46', name: 'Sector 46', tag: 'Comfort Retreat', rooms: 14, type: 'Comfort Stay',
+    slug: 'sector-46', name: 'Sector 46', tag: 'Comfort Retreat', rooms: 24, type: 'Comfort Stay',
     vibe: 'Calm, established residential comfort',
     proximity: 'Near Sector 46 Rapid Metro, 10 mins from Artemis Hospital, 12 mins from Medanta.',
     idealFor: 'Healthcare visitors, extended family stays, and medical tourism requiring a homely, elegant retreat.',
@@ -20,7 +20,7 @@ const properties = [
     imgNum: 20, imgLabel: 'Sector 46 Property Exterior',
   },
   {
-    slug: 'sector-42', name: 'Sector 42', tag: 'Urban Connect', rooms: 15, type: 'Comfort Stay',
+    slug: 'sector-42', name: 'Sector 42', tag: 'Urban Connect', rooms: 16, type: 'Comfort Stay',
     vibe: 'Centralized, high-energy urban access',
     proximity: '5 mins from IFFCO Chowk Metro, 10 mins from DLF Cyber Hub/Cyber City, near Udyog Vihar.',
     idealFor: 'Executives, VIP project teams, and professionals needing to be in the absolute center of Gurugram\'s commercial district.',
@@ -41,12 +41,12 @@ export default function PropertiesPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative" style={{ height: 350 }}>
+      <section className="relative" style={{ height: 400 }}>
         <ImagePlaceholder number={23} label="Properties Page Hero - Multiple Buildings" className="w-full h-full !rounded-none" aspect="" />
         <div className="absolute inset-0 flex items-center justify-center" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7))' }}>
           <div className="text-center text-white px-6">
             <p className="section-divider text-gold text-xs uppercase tracking-[0.3em] mb-4 font-jost">Our Portfolio</p>
-            <h1 className="text-4xl md:text-5xl font-semibold font-jost">Our Properties</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold font-jost">Our Properties</h1>
             <p className="mt-3 text-gray-300 max-w-xl mx-auto">Distinct property hubs strategically mapped across Gurugram&apos;s prime sectors</p>
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function PropertiesPage() {
                     { label: 'Proximity', value: prop.proximity },
                     { label: 'Ideal For', value: prop.idealFor },
                   ].map((d, j) => (
-                    <div key={j} className={`grid grid-cols-[110px_1fr] md:grid-cols-[140px_1fr] ${j < 3 ? 'border-b border-gray-100' : ''}`}>
+                    <div key={j} className={`grid grid-cols-[90px_1fr] sm:grid-cols-[110px_1fr] md:grid-cols-[140px_1fr] ${j < 3 ? 'border-b border-gray-100' : ''}`}>
                       <div className="bg-gray-50 px-5 py-3.5 text-xs font-semibold text-navy font-jost uppercase tracking-wider">{d.label}</div>
                       <div className="px-5 py-3.5 text-sm text-gray-600 leading-relaxed">{d.value}</div>
                     </div>

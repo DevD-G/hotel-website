@@ -1,34 +1,14 @@
 'use client';
 import Link from 'next/link';
-import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer className="bg-navy text-white">
-      {/* Newsletter */}
-      <div className="py-12" style={{ background: 'linear-gradient(135deg, #0C5DCD, #08459b)' }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div>
-            <h3 className="text-2xl font-semibold font-jost">Subscribe to Our Newsletter</h3>
-            <p className="text-blue-200 text-sm mt-1.5">Stay updated with our latest offers and exclusive deals</p>
-          </div>
-          <form className="flex gap-2 w-full md:w-auto" onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="px-5 py-3.5 rounded-xl text-white text-sm border border-white/20 focus:outline-none focus:border-white/50 flex-1 md:w-80 transition-colors"
-              style={{ background: 'rgba(255,255,255,0.12)' }}
-            />
-            <button type="submit" className="px-7 py-3.5 bg-white text-primary font-semibold rounded-xl hover:bg-gray-100 transition-colors font-jost uppercase tracking-wider text-sm whitespace-nowrap shadow-md flex items-center gap-2">
-              Subscribe <ArrowRight className="w-4 h-4" />
-            </button>
-          </form>
-        </div>
-      </div>
 
       {/* Main footer grid */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-6">
@@ -119,7 +99,7 @@ export default function Footer() {
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-xs tracking-wider font-jost">&copy; {new Date().getFullYear()} Imperial Stayz. All Rights Reserved.</p>
-          <div className="flex gap-8">
+          <div className="flex gap-4 sm:gap-8">
             <Link href="/privacy-policy" className="text-gray-500 hover:text-white transition-colors text-xs tracking-wider font-jost">Privacy Policy</Link>
             <Link href="/terms-and-conditions" className="text-gray-500 hover:text-white transition-colors text-xs tracking-wider font-jost">Terms & Conditions</Link>
           </div>

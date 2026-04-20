@@ -10,9 +10,9 @@ import {
 } from 'lucide-react';
 
 const properties = [
-  { slug: 'sector-51', name: 'Sector 51', tag: 'Flagship Property', rooms: 15, type: 'Business Hotel', desc: 'Functional, quiet corporate base. Direct access to NH-48 corridor, near Sector 53-54 commercial belt.', diff: '1RK Deluxe & Studio Rooms', imgLabel: 'Sector 51 Room', imgNum: 7 },
-  { slug: 'sector-46', name: 'Sector 46', tag: 'Comfort Retreat', rooms: 14, type: 'Comfort Stay', desc: 'Calm, established residential comfort. Near Sector 46 Rapid Metro, 10 mins from Artemis Hospital.', diff: 'Elegant Residential Rooms', imgLabel: 'Sector 46 Room', imgNum: 6 },
-  { slug: 'sector-42', name: 'Sector 42', tag: 'Urban Connect', rooms: 15, type: 'Comfort Stay', desc: 'Centralized, high-energy urban access. 5 mins from IFFCO Chowk Metro, 10 mins from DLF Cyber Hub.', diff: 'Premium Terrace + Hotel-Style Rooms', imgLabel: 'Sector 42 Exterior', imgNum: 8 },
+  { slug: 'sector-51', name: 'Sector 51', tag: 'Flagship Property', rooms: 16, type: 'Business Hotel', desc: 'Functional, quiet corporate base. Direct access to NH-48 corridor, near Sector 53-54 commercial belt.', diff: '1RK Deluxe & Studio Rooms', imgLabel: 'Sector 51 Room', imgNum: 7 },
+  { slug: 'sector-46', name: 'Sector 46', tag: 'Comfort Retreat', rooms: 24, type: 'Comfort Stay', desc: 'Calm, established residential comfort. Near Sector 46 Rapid Metro, 10 mins from Artemis Hospital.', diff: 'Elegant Residential Rooms', imgLabel: 'Sector 46 Room', imgNum: 6 },
+  { slug: 'sector-42', name: 'Sector 42', tag: 'Urban Connect', rooms: 16, type: 'Comfort Stay', desc: 'Centralized, high-energy urban access. 5 mins from IFFCO Chowk Metro, 10 mins from DLF Cyber Hub.', diff: 'Premium Terrace + Hotel-Style Rooms', imgLabel: 'Sector 42 Exterior', imgNum: 8 },
   { slug: 'sector-45', name: 'Sector 45', tag: 'Boutique Hotel', rooms: 18, type: 'Boutique Hotel', desc: 'Premium urban convenience. 2 mins from Galleria Market, 5 mins from Fortis Memorial Hospital, near DLF Phase IV.', diff: 'Roof + Banquet Hall Facility', imgLabel: 'Sector 45 Exterior', imgNum: 5 },
 ];
 
@@ -80,10 +80,10 @@ export default function HomePage() {
           {/* Hero text */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-6" style={{ zIndex: 4 }}>
             <p className="section-divider text-gold-light text-xs uppercase tracking-[0.4em] mb-6 font-jost">Welcome to Imperial Stayz</p>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold font-jost mb-6 leading-tight tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold font-jost mb-6 leading-tight tracking-tight">
               Where Elegance<br />Meets Comfort
             </h1>
-            <p className="text-lg text-gray-300 max-w-2xl mb-10 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-300 max-w-2xl mb-10 leading-relaxed">
               Premium properties across Gurugram&apos;s prime sectors, offering well-appointed rooms designed for corporate and extended stays.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
@@ -104,10 +104,10 @@ export default function HomePage() {
           </div>
 
           {/* Arrows */}
-          <button onClick={() => setCurrentSlide((p) => (p === 0 ? heroSlides.length - 1 : p - 1))} className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center border border-white/20 hover:bg-primary hover:border-primary transition-colors" style={{ zIndex: 5, background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)' }}>
+          <button onClick={() => setCurrentSlide((p) => (p === 0 ? heroSlides.length - 1 : p - 1))} className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full hidden sm:flex items-center justify-center border border-white/20 hover:bg-primary hover:border-primary transition-colors" style={{ zIndex: 5, background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)' }}>
             <ChevronLeft className="w-5 h-5 text-white" />
           </button>
-          <button onClick={() => setCurrentSlide((p) => (p + 1) % heroSlides.length)} className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full flex items-center justify-center border border-white/20 hover:bg-primary hover:border-primary transition-colors" style={{ zIndex: 5, background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)' }}>
+          <button onClick={() => setCurrentSlide((p) => (p + 1) % heroSlides.length)} className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full hidden sm:flex items-center justify-center border border-white/20 hover:bg-primary hover:border-primary transition-colors" style={{ zIndex: 5, background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)' }}>
             <ChevronRight className="w-5 h-5 text-white" />
           </button>
         </div>
@@ -232,48 +232,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══════════════════ ROOMS ═══════════════════ */}
-      <section className="py-24 px-6 bg-light-gray">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="section-divider text-gold text-xs uppercase tracking-[0.3em] mb-4 font-jost">Accommodations</p>
-            <h2 className="text-3xl md:text-4xl font-semibold text-navy font-jost">Rooms & Suites</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { num: 9, label: 'Standard Room', title: 'Standard Room', price: '₹2,500', desc: 'Comfortable rooms with modern amenities, perfect for business travelers.' },
-              { num: 10, label: 'Deluxe Room', title: 'Deluxe Room', price: '₹3,500', desc: 'Spacious rooms with premium furnishings and city views.' },
-              { num: 11, label: 'Premium Suite Room', title: 'Premium Suite', price: '₹5,000', desc: 'Luxury suites with separate living area, ideal for extended stays.' },
-            ].map((room, i) => (
-              <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 group flex flex-col">
-                <div className="relative overflow-hidden">
-                  <div className="group-hover:scale-105 transition-transform duration-700">
-                    <ImagePlaceholder number={room.num} label={room.label} className="w-full h-56 !rounded-none" aspect="" />
-                  </div>
-                  <div className="absolute top-4 right-4 bg-white/90 px-4 py-1.5 rounded-full shadow-sm" style={{ backdropFilter: 'blur(8px)' }}>
-                    <span className="text-primary font-bold font-jost text-sm">{room.price}</span>
-                    <span className="text-gray-400 text-[10px] ml-1 font-jost">/night</span>
-                  </div>
-                </div>
-                <div className="p-7 flex flex-col flex-1">
-                  <h3 className="text-lg font-semibold text-navy font-jost mb-3">{room.title}</h3>
-                  <p className="text-sm text-gray-400 mb-5 leading-relaxed flex-1">{room.desc}</p>
-                  <div className="flex gap-3 mb-6">
-                    {[Wifi, Tv, Snowflake, Coffee].map((Icon, j) => (
-                      <div key={j} className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center">
-                        <Icon className="w-3.5 h-3.5 text-gray-400" />
-                      </div>
-                    ))}
-                  </div>
-                  <Link href="/rooms" className="block text-center border-2 border-primary text-primary px-6 py-2.5 rounded-lg text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors font-jost mt-auto">
-                    View Details
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ═══════════════════ DINING & EVENTS ═══════════════════ */}
       <section className="py-24 px-6">
@@ -311,7 +269,7 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-4xl font-semibold font-jost mb-14">What Our Guests Say</h2>
 
           <div className="relative">
-            <div className="rounded-2xl p-8 lg:p-14 border border-white/10" style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(12px)' }}>
+            <div className="rounded-2xl p-6 sm:p-8 lg:p-14 border border-white/10" style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(12px)' }}>
               <div className="text-6xl text-gold-light/30 font-serif leading-none mb-4">&ldquo;</div>
               <div className="flex justify-center mb-6 gap-1">
                 {Array.from({ length: testimonials[testimonialIndex].rating }).map((_, i) => (
@@ -371,7 +329,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="relative">
             <a href="https://share.google/rxVTNbdbg3tyOOVp3" target="_blank" rel="noopener noreferrer" className="block">
-              <ImagePlaceholder number={14} label="Map - Sector 51 Location" className="w-full h-[450px] shadow-xl cursor-pointer hover:opacity-90 transition-opacity" aspect="" />
+              <ImagePlaceholder number={14} label="Map - Sector 51 Location" className="w-full h-[250px] sm:h-[350px] md:h-[450px] shadow-xl cursor-pointer hover:opacity-90 transition-opacity" aspect="" />
             </a>
             <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-gold/20 rounded-xl hidden lg:block" style={{ zIndex: -1 }} />
           </div>

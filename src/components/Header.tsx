@@ -112,7 +112,7 @@ export default function Header() {
               >
                 Book Now
               </Link>
-              <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden p-2 text-gray-700" aria-label="Menu">
+              <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-gray-700" aria-label="Menu">
                 {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
@@ -128,7 +128,7 @@ export default function Header() {
                   <Link
                     href={item.href}
                     onClick={() => !item.children && setIsOpen(false)}
-                    className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg font-jost uppercase tracking-wider"
+                    className="block px-4 py-3.5 min-h-[44px] flex items-center text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg font-jost uppercase tracking-wider"
                   >
                     {item.name}
                   </Link>

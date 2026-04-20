@@ -6,12 +6,12 @@ export default function AboutPage() {
   return (
     <div>
       {/* Hero Banner */}
-      <section className="relative" style={{ height: 350 }}>
+      <section className="relative" style={{ height: 400 }}>
         <ImagePlaceholder number={15} label="About Page Hero - Hotel Exterior" className="w-full h-full !rounded-none" aspect="" />
         <div className="absolute inset-0 flex items-center justify-center" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7))' }}>
           <div className="text-center text-white px-6">
             <p className="section-divider text-gold text-xs uppercase tracking-[0.3em] mb-4 font-jost">About Us</p>
-            <h1 className="text-4xl md:text-5xl font-semibold font-jost">Our Story</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold font-jost">Our Story</h1>
           </div>
         </div>
       </section>

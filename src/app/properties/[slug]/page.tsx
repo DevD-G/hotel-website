@@ -3,6 +3,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
 import BookingWidget from '@/components/BookingWidget';
+import RoomCard, { type RoomType } from '@/components/RoomCard';
 import { MapPin, Wifi, Car, Shield, Utensils, Tv, Snowflake, Clock, Phone, Mail, ArrowRight } from 'lucide-react';
 
 const propertyData: Record<string, {
@@ -10,10 +11,10 @@ const propertyData: Record<string, {
   proximity: string; idealFor: string; diff: string; address: string;
   heroNum: number; heroLabel: string;
   galleryNums: { num: number; label: string }[];
-  roomTypes: { name: string; price: string; imgNum: number; imgLabel: string; features: string[] }[];
+  roomTypes: RoomType[];
 }> = {
   'sector-51': {
-    name: 'Sector 51', tag: 'Flagship Property', rooms: 15, type: 'Business Hotel',
+    name: 'Sector 51', tag: 'Flagship Property', rooms: 16, type: 'Business Hotel',
     vibe: 'Functional, quiet corporate base',
     proximity: 'Direct access to NH-48 corridor, near Sector 53-54 commercial belt, 15 mins to Cyber City.',
     idealFor: 'Extended corporate deployments, project teams, and professionals requiring highway connectivity.',
@@ -27,12 +28,42 @@ const propertyData: Record<string, {
       { num: 43, label: 'S51 - Common Area' },
     ],
     roomTypes: [
-      { name: '1RK Deluxe', price: '₹2,500', imgNum: 44, imgLabel: 'S51 1RK Deluxe Room', features: ['Queen Bed', 'Kitchenette', 'WiFi', 'Smart LED TV', 'AC', 'Work Desk'] },
-      { name: '1RK Studio with Sofa', price: '₹4,500', imgNum: 45, imgLabel: 'S51 1RK Studio Room', features: ['King Bed', 'Sofa', 'Kitchenette', 'Living Area', 'WiFi', 'Smart LED TV', 'AC', 'Washer'] },
+      {
+        name: '1RK Deluxe',
+        price: '₹2,500',
+        priceNote: 'Taxes included',
+        photos: [
+          { num: 44, label: 'S51 1RK Deluxe - Main' },
+          { num: 42, label: 'S51 1RK Deluxe - Angle' },
+          { num: 41, label: 'S51 1RK Deluxe - Kitchen' },
+        ],
+        bedType: 'Queen Bed',
+        roomSize: '220 sq ft',
+        maxGuests: 2,
+        features: ['Free WiFi', 'Kitchenette', 'Smart LED TV', 'AC', 'Work Desk', 'Attached Bath'],
+        breakfast: { included: false, addOnPrice: '₹250' },
+      },
+      {
+        name: '1RK Studio with Sofa',
+        price: '₹4,500',
+        priceNote: 'Taxes included',
+        photos: [
+          { num: 45, label: 'S51 Studio - Main' },
+          { num: 42, label: 'S51 Studio - Room' },
+          { num: 41, label: 'S51 Studio - Kitchen' },
+          { num: 43, label: 'S51 Studio - Living' },
+        ],
+        bedType: 'King Bed',
+        roomSize: '380 sq ft',
+        maxGuests: 3,
+        features: ['Free WiFi', 'Kitchenette', 'Living Area', 'Sofa', 'Smart LED TV', 'AC', 'Work Desk', 'Washer'],
+        breakfast: { included: true },
+        highlight: 'Best Value',
+      },
     ],
   },
   'sector-46': {
-    name: 'Sector 46', tag: 'Comfort Retreat', rooms: 14, type: 'Comfort Stay',
+    name: 'Sector 46', tag: 'Comfort Retreat', rooms: 24, type: 'Comfort Stay',
     vibe: 'Calm, established residential comfort',
     proximity: 'Near Sector 46 Rapid Metro, 10 mins from Artemis Hospital, 12 mins from Medanta.',
     idealFor: 'Healthcare visitors, extended family stays, and medical tourism requiring a homely, elegant retreat.',
@@ -46,12 +77,42 @@ const propertyData: Record<string, {
       { num: 36, label: 'S46 - Common Area' },
     ],
     roomTypes: [
-      { name: 'Comfort Room', price: '₹2,200', imgNum: 37, imgLabel: 'S46 Comfort Room', features: ['Queen Bed', 'WiFi', 'Smart LED TV', 'AC', 'Attached Bath'] },
-      { name: 'Deluxe Residential', price: '₹3,200', imgNum: 38, imgLabel: 'S46 Deluxe Residential', features: ['King Bed', 'WiFi', 'Smart LED TV', 'AC', 'Balcony', 'Work Desk'] },
+      {
+        name: 'Comfort Room',
+        price: '₹2,200',
+        priceNote: 'Taxes included',
+        photos: [
+          { num: 37, label: 'S46 Comfort Room - Main' },
+          { num: 34, label: 'S46 Comfort Room - Interior' },
+          { num: 33, label: 'S46 Comfort Room - Reception' },
+        ],
+        bedType: 'Queen Bed',
+        roomSize: '200 sq ft',
+        maxGuests: 2,
+        features: ['Free WiFi', 'Smart LED TV', 'AC', 'Attached Bath', 'Coffee Maker'],
+        breakfast: { included: false, addOnPrice: '₹200' },
+      },
+      {
+        name: 'Deluxe Residential',
+        price: '₹3,200',
+        priceNote: 'Taxes included',
+        photos: [
+          { num: 38, label: 'S46 Deluxe Residential - Main' },
+          { num: 34, label: 'S46 Deluxe - Room' },
+          { num: 35, label: 'S46 Deluxe - Rooftop' },
+          { num: 36, label: 'S46 Deluxe - Common Area' },
+        ],
+        bedType: 'King Bed',
+        roomSize: '300 sq ft',
+        maxGuests: 3,
+        features: ['Free WiFi', 'Smart LED TV', 'AC', 'Balcony', 'Work Desk', 'Private Bathroom', 'Coffee Maker'],
+        breakfast: { included: true },
+        highlight: 'Popular',
+      },
     ],
   },
   'sector-42': {
-    name: 'Sector 42', tag: 'Urban Connect', rooms: 15, type: 'Comfort Stay',
+    name: 'Sector 42', tag: 'Urban Connect', rooms: 16, type: 'Comfort Stay',
     vibe: 'Centralized, high-energy urban access',
     proximity: '5 mins from IFFCO Chowk Metro, 10 mins from DLF Cyber Hub/Cyber City, near Udyog Vihar.',
     idealFor: 'Executives, VIP project teams, and professionals needing to be in the center of Gurugram\'s commercial district.',
@@ -65,8 +126,38 @@ const propertyData: Record<string, {
       { num: 50, label: 'S42 - Deluxe Room' },
     ],
     roomTypes: [
-      { name: 'Standard Room', price: '₹2,500', imgNum: 51, imgLabel: 'S42 Standard Room', features: ['Queen Bed', 'WiFi', 'Smart LED TV', 'AC', 'Work Desk'] },
-      { name: 'Deluxe Room', price: '₹3,500', imgNum: 52, imgLabel: 'S42 Deluxe Room', features: ['King Bed', 'WiFi', 'Smart LED TV', 'AC', 'Work Desk', 'Terrace Access'] },
+      {
+        name: 'Standard Room',
+        price: '₹2,500',
+        priceNote: 'Taxes included',
+        photos: [
+          { num: 51, label: 'S42 Standard Room - Main' },
+          { num: 49, label: 'S42 Standard Room - Angle' },
+          { num: 48, label: 'S42 Standard - Lobby' },
+        ],
+        bedType: 'Queen Bed',
+        roomSize: '220 sq ft',
+        maxGuests: 2,
+        features: ['Free WiFi', 'Smart LED TV', 'AC', 'Work Desk', 'Attached Bath'],
+        breakfast: { included: false, addOnPrice: '₹250' },
+      },
+      {
+        name: 'Deluxe Room',
+        price: '₹3,500',
+        priceNote: 'Taxes included',
+        photos: [
+          { num: 52, label: 'S42 Deluxe Room - Main' },
+          { num: 50, label: 'S42 Deluxe - Interior' },
+          { num: 47, label: 'S42 Deluxe - Terrace' },
+          { num: 48, label: 'S42 Deluxe - Lobby' },
+        ],
+        bedType: 'King Bed',
+        roomSize: '320 sq ft',
+        maxGuests: 3,
+        features: ['Free WiFi', 'Smart LED TV', 'AC', 'Work Desk', 'Terrace Access', 'Private Bathroom', 'Mini Fridge'],
+        breakfast: { included: true },
+        highlight: 'Terrace Access',
+      },
     ],
   },
   'sector-45': {
@@ -84,9 +175,55 @@ const propertyData: Record<string, {
       { num: 28, label: 'S45 - Corridor/Common Area' },
     ],
     roomTypes: [
-      { name: 'Standard Room', price: '₹2,500', imgNum: 29, imgLabel: 'S45 Standard Room', features: ['Queen Bed', 'WiFi', 'Smart LED TV', 'AC', 'Attached Bath'] },
-      { name: 'Deluxe Room', price: '₹3,500', imgNum: 30, imgLabel: 'S45 Deluxe Room', features: ['King Bed', 'WiFi', 'Smart LED TV', 'AC', 'Mini Fridge', 'Work Desk'] },
-      { name: 'Premium Suite', price: '₹5,000', imgNum: 31, imgLabel: 'S45 Premium Suite', features: ['King Bed', 'Living Area', 'WiFi', 'Smart LED TV', 'AC', 'Mini Bar', 'City View'] },
+      {
+        name: 'Standard Room',
+        price: '₹2,500',
+        priceNote: 'Taxes included',
+        photos: [
+          { num: 29, label: 'S45 Standard Room - Main' },
+          { num: 25, label: 'S45 Standard - Lobby' },
+          { num: 28, label: 'S45 Standard - Corridor' },
+        ],
+        bedType: 'Queen Bed',
+        roomSize: '200 sq ft',
+        maxGuests: 2,
+        features: ['Free WiFi', 'Smart LED TV', 'AC', 'Attached Bath', 'Coffee Maker'],
+        breakfast: { included: false, addOnPrice: '₹250' },
+      },
+      {
+        name: 'Deluxe Room',
+        price: '₹3,500',
+        priceNote: 'Taxes included',
+        photos: [
+          { num: 30, label: 'S45 Deluxe Room - Main' },
+          { num: 25, label: 'S45 Deluxe - Lobby' },
+          { num: 27, label: 'S45 Deluxe - Rooftop' },
+          { num: 28, label: 'S45 Deluxe - Common Area' },
+        ],
+        bedType: 'King Bed',
+        roomSize: '280 sq ft',
+        maxGuests: 2,
+        features: ['Free WiFi', 'Smart LED TV', 'AC', 'Mini Fridge', 'Work Desk', 'Private Bathroom'],
+        breakfast: { included: true },
+      },
+      {
+        name: 'Premium Suite',
+        price: '₹5,000',
+        priceNote: 'Taxes included',
+        photos: [
+          { num: 31, label: 'S45 Premium Suite - Main' },
+          { num: 30, label: 'S45 Suite - Deluxe' },
+          { num: 27, label: 'S45 Suite - Rooftop View' },
+          { num: 26, label: 'S45 Suite - Banquet Access' },
+          { num: 25, label: 'S45 Suite - Lobby' },
+        ],
+        bedType: 'King Bed',
+        roomSize: '400 sq ft',
+        maxGuests: 3,
+        features: ['Free WiFi', 'Smart LED TV', 'AC', 'Living Area', 'Mini Bar', 'City View', 'Work Desk', 'Private Bathroom'],
+        breakfast: { included: true },
+        highlight: 'Best Experience',
+      },
     ],
   },
 };
@@ -137,7 +274,7 @@ export default function PropertyDetailPage() {
 
       {/* Booking Widget */}
       <div className="max-w-6xl mx-auto px-6 -mt-16 relative mb-20" style={{ zIndex: 10 }}>
-        <BookingWidget />
+        <BookingWidget defaultProperty={slug as string} />
       </div>
 
       {/* Property Details + Sidebar */}
@@ -148,10 +285,10 @@ export default function PropertyDetailPage() {
           <div className="lg:col-span-2">
             <h2 className="text-2xl font-semibold text-navy font-jost mb-8">About This Property</h2>
 
-            {/* Key-value details — proper table alignment */}
+            {/* Key-value details */}
             <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden mb-10">
               {details.map((d, i) => (
-                <div key={i} className={`grid grid-cols-[140px_1fr] md:grid-cols-[180px_1fr] ${i < details.length - 1 ? 'border-b border-gray-100' : ''}`}>
+                <div key={i} className={`grid grid-cols-[100px_1fr] sm:grid-cols-[140px_1fr] md:grid-cols-[180px_1fr] ${i < details.length - 1 ? 'border-b border-gray-100' : ''}`}>
                   <div className="bg-gray-50 px-6 py-4 font-semibold text-sm text-navy font-jost">{d.label}</div>
                   <div className="px-6 py-4 text-sm text-gray-600 leading-relaxed">{d.value}</div>
                 </div>
@@ -210,7 +347,7 @@ export default function PropertyDetailPage() {
                 <ImagePlaceholder number={prop.heroNum + 100} label={`Map - ${prop.name}`} className="w-full h-40 !rounded-xl" aspect="" />
               </div>
 
-              <Link href="/booking" className="flex items-center justify-center gap-2 w-full bg-primary text-white py-3.5 rounded-xl font-semibold uppercase tracking-wider text-sm hover:bg-primary-dark transition-colors font-jost shadow-md">
+              <Link href={`/booking?property=${slug}`} className="flex items-center justify-center gap-2 w-full bg-primary text-white py-3.5 rounded-xl font-semibold uppercase tracking-wider text-sm hover:bg-primary-dark transition-colors font-jost shadow-md">
                 Book This Property <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -218,35 +355,17 @@ export default function PropertyDetailPage() {
         </div>
       </section>
 
-      {/* Room Types */}
+      {/* Room Types — Booking.com style */}
       <section className="py-20 px-6 bg-light-gray">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <p className="section-divider text-gold text-xs uppercase tracking-[0.3em] mb-4 font-jost">Accommodations</p>
             <h2 className="text-3xl font-semibold text-navy font-jost">Available Room Types</h2>
+            <p className="text-gray-500 text-sm mt-3 max-w-lg mx-auto">Choose from {prop.roomTypes.length} room types at Imperial Stayz — {prop.name}</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="space-y-6">
             {prop.roomTypes.map((room, i) => (
-              <div key={i} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
-                <div className="relative overflow-hidden">
-                  <ImagePlaceholder number={room.imgNum} label={room.imgLabel} className="w-full h-52 !rounded-none" aspect="" />
-                  <div className="absolute top-4 right-4 bg-white/90 px-4 py-1.5 rounded-full shadow-sm" style={{ backdropFilter: 'blur(8px)' }}>
-                    <span className="text-primary font-bold font-jost text-sm">{room.price}</span>
-                    <span className="text-gray-400 text-[10px] ml-1 font-jost">/night</span>
-                  </div>
-                </div>
-                <div className="p-7 flex flex-col flex-1">
-                  <h3 className="text-lg font-semibold text-navy font-jost mb-4">{room.name}</h3>
-                  <div className="flex flex-wrap gap-2 mb-6 flex-1">
-                    {room.features.map((f, j) => (
-                      <span key={j} className="text-xs bg-gray-50 text-gray-500 px-3 py-1.5 rounded-lg font-jost">{f}</span>
-                    ))}
-                  </div>
-                  <Link href="/booking" className="block text-center border-2 border-primary text-primary py-2.5 rounded-xl text-sm font-semibold uppercase tracking-wider hover:bg-primary hover:text-white transition-colors font-jost mt-auto">
-                    Book Now
-                  </Link>
-                </div>
-              </div>
+              <RoomCard key={i} room={room} slug={slug as string} />
             ))}
           </div>
         </div>
