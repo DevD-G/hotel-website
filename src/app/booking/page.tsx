@@ -392,10 +392,10 @@ function BookingForm() {
               {/* Selected room summary */}
               {selectedRoom && (
                 <div className="flex items-center gap-4 p-4 bg-[var(--color-light-gray)] rounded-xl mb-6">
-                  <ImagePlaceholder number={selectedRoom.photos[0].num} label={selectedRoom.photos[0].label} className="w-20 h-16 shrink-0" aspect="" />
+                  <ImagePlaceholder number={selectedRoom?.photos[0]?.num ?? 0} label={selectedRoom?.photos[0]?.label ?? ''} className="w-20 h-16 shrink-0" aspect="" />
                   <div>
-                    <div className="font-semibold text-[var(--color-navy)] font-jost text-sm">{selectedRoom.name}</div>
-                    <div className="text-xs text-gray-500">{selectedProperty?.label} · {selectedRoom.price}/night</div>
+                    <div className="font-semibold text-[var(--color-navy)] font-jost text-sm">{selectedRoom?.name}</div>
+                    <div className="text-xs text-gray-500">{selectedProperty?.label} · {selectedRoom?.price}/night</div>
                   </div>
                 </div>
               )}
@@ -442,11 +442,11 @@ function BookingForm() {
               {/* Room summary card */}
               {selectedRoom && (
                 <div className="flex flex-col sm:flex-row gap-4 p-4 bg-[var(--color-light-gray)] rounded-xl mb-6">
-                  <ImagePlaceholder number={selectedRoom.photos[0].num} label={selectedRoom.photos[0].label} className="w-full sm:w-32 h-24 shrink-0" aspect="" />
+                  <ImagePlaceholder number={selectedRoom?.photos[0]?.num ?? 0} label={selectedRoom?.photos[0]?.label ?? ''} className="w-full sm:w-32 h-24 shrink-0" aspect="" />
                   <div className="flex-1">
-                    <div className="font-semibold text-[var(--color-navy)] font-jost">{selectedRoom.name}</div>
-                    <div className="text-xs text-gray-500 mt-1">{selectedRoom.bedType} · {selectedRoom.roomSize} · Up to {selectedRoom.maxGuests} guests</div>
-                    <div className="text-lg font-bold text-[var(--color-primary)] font-jost mt-2">{selectedRoom.price}<span className="text-xs font-normal text-gray-400 ml-1">/night</span></div>
+                    <div className="font-semibold text-[var(--color-navy)] font-jost">{selectedRoom?.name}</div>
+                    <div className="text-xs text-gray-500 mt-1">{selectedRoom?.bedType} · {selectedRoom?.roomSize} · Up to {selectedRoom?.maxGuests} guests</div>
+                    <div className="text-lg font-bold text-[var(--color-primary)] font-jost mt-2">{selectedRoom?.price}<span className="text-xs font-normal text-gray-400 ml-1">/night</span></div>
                   </div>
                 </div>
               )}
