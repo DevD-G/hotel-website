@@ -47,9 +47,13 @@ export default function ImagePlaceholder({ number, label, className = '', aspect
         <img
           src={`/images/photo-${number}.jpg`}
           alt={label}
+          width={800}
+          height={600}
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
+          decoding="async"
           onError={() => setHasImage(false)}
+          style={{ minHeight: '100%', minWidth: '100%' }}
         />
       </div>
     );

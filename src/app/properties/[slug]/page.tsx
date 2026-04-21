@@ -2,7 +2,6 @@
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import ImagePlaceholder from '@/components/ImagePlaceholder';
-import BookingWidget from '@/components/BookingWidget';
 import RoomCard, { type RoomType } from '@/components/RoomCard';
 import { MapPin, Wifi, Car, Shield, Utensils, Tv, Snowflake, Clock, Phone, Mail, ArrowRight } from 'lucide-react';
 
@@ -33,9 +32,7 @@ const propertyData: Record<string, {
         price: '₹2,500',
         priceNote: 'Taxes included',
         photos: [
-          { num: 44, label: 'S51 1RK Deluxe - Main' },
-          { num: 42, label: 'S51 1RK Deluxe - Angle' },
-          { num: 41, label: 'S51 1RK Deluxe - Kitchen' },
+          { num: 44, label: 'S51 1RK Deluxe Room' },
         ],
         bedType: 'Queen Bed',
         roomSize: '220 sq ft',
@@ -48,10 +45,8 @@ const propertyData: Record<string, {
         price: '₹4,500',
         priceNote: 'Taxes included',
         photos: [
-          { num: 45, label: 'S51 Studio - Main' },
-          { num: 42, label: 'S51 Studio - Room' },
-          { num: 41, label: 'S51 Studio - Kitchen' },
-          { num: 43, label: 'S51 Studio - Living' },
+          { num: 45, label: 'S51 Studio Room' },
+          { num: 42, label: 'S51 Studio - Another View' },
         ],
         bedType: 'King Bed',
         roomSize: '380 sq ft',
@@ -82,9 +77,8 @@ const propertyData: Record<string, {
         price: '₹2,200',
         priceNote: 'Taxes included',
         photos: [
-          { num: 37, label: 'S46 Comfort Room - Main' },
+          { num: 37, label: 'S46 Comfort Room' },
           { num: 34, label: 'S46 Comfort Room - Interior' },
-          { num: 33, label: 'S46 Comfort Room - Reception' },
         ],
         bedType: 'Queen Bed',
         roomSize: '200 sq ft',
@@ -97,10 +91,7 @@ const propertyData: Record<string, {
         price: '₹3,200',
         priceNote: 'Taxes included',
         photos: [
-          { num: 38, label: 'S46 Deluxe Residential - Main' },
-          { num: 34, label: 'S46 Deluxe - Room' },
-          { num: 35, label: 'S46 Deluxe - Rooftop' },
-          { num: 36, label: 'S46 Deluxe - Common Area' },
+          { num: 38, label: 'S46 Deluxe Residential Room' },
         ],
         bedType: 'King Bed',
         roomSize: '300 sq ft',
@@ -131,9 +122,8 @@ const propertyData: Record<string, {
         price: '₹2,500',
         priceNote: 'Taxes included',
         photos: [
-          { num: 51, label: 'S42 Standard Room - Main' },
-          { num: 49, label: 'S42 Standard Room - Angle' },
-          { num: 48, label: 'S42 Standard - Lobby' },
+          { num: 51, label: 'S42 Standard Room' },
+          { num: 49, label: 'S42 Standard Room - Another View' },
         ],
         bedType: 'Queen Bed',
         roomSize: '220 sq ft',
@@ -146,10 +136,8 @@ const propertyData: Record<string, {
         price: '₹3,500',
         priceNote: 'Taxes included',
         photos: [
-          { num: 52, label: 'S42 Deluxe Room - Main' },
-          { num: 50, label: 'S42 Deluxe - Interior' },
-          { num: 47, label: 'S42 Deluxe - Terrace' },
-          { num: 48, label: 'S42 Deluxe - Lobby' },
+          { num: 52, label: 'S42 Deluxe Room' },
+          { num: 50, label: 'S42 Deluxe Room - Interior' },
         ],
         bedType: 'King Bed',
         roomSize: '320 sq ft',
@@ -180,9 +168,7 @@ const propertyData: Record<string, {
         price: '₹2,500',
         priceNote: 'Taxes included',
         photos: [
-          { num: 29, label: 'S45 Standard Room - Main' },
-          { num: 25, label: 'S45 Standard - Lobby' },
-          { num: 28, label: 'S45 Standard - Corridor' },
+          { num: 29, label: 'S45 Standard Room' },
         ],
         bedType: 'Queen Bed',
         roomSize: '200 sq ft',
@@ -195,10 +181,7 @@ const propertyData: Record<string, {
         price: '₹3,500',
         priceNote: 'Taxes included',
         photos: [
-          { num: 30, label: 'S45 Deluxe Room - Main' },
-          { num: 25, label: 'S45 Deluxe - Lobby' },
-          { num: 27, label: 'S45 Deluxe - Rooftop' },
-          { num: 28, label: 'S45 Deluxe - Common Area' },
+          { num: 30, label: 'S45 Deluxe Room' },
         ],
         bedType: 'King Bed',
         roomSize: '280 sq ft',
@@ -211,11 +194,7 @@ const propertyData: Record<string, {
         price: '₹5,000',
         priceNote: 'Taxes included',
         photos: [
-          { num: 31, label: 'S45 Premium Suite - Main' },
-          { num: 30, label: 'S45 Suite - Deluxe' },
-          { num: 27, label: 'S45 Suite - Rooftop View' },
-          { num: 26, label: 'S45 Suite - Banquet Access' },
-          { num: 25, label: 'S45 Suite - Lobby' },
+          { num: 31, label: 'S45 Premium Suite' },
         ],
         bedType: 'King Bed',
         roomSize: '400 sq ft',
@@ -272,10 +251,6 @@ export default function PropertyDetailPage() {
         </div>
       </section>
 
-      {/* Booking Widget */}
-      <div className="max-w-6xl mx-auto px-6 -mt-16 relative mb-20" style={{ zIndex: 10 }}>
-        <BookingWidget defaultProperty={slug as string} />
-      </div>
 
       {/* Property Details + Sidebar */}
       <section className="py-12 px-6">
@@ -344,7 +319,7 @@ export default function PropertyDetailPage() {
 
               {/* Map placeholder */}
               <div className="rounded-xl overflow-hidden mb-6">
-                <ImagePlaceholder number={prop.heroNum + 100} label={`Map - ${prop.name}`} className="w-full h-40 !rounded-xl" aspect="" />
+                <ImagePlaceholder number={prop.heroNum} label={`${prop.name} Location`} className="w-full h-40 !rounded-xl" aspect="" />
               </div>
 
               <Link href={`/booking?property=${slug}`} className="flex items-center justify-center gap-2 w-full bg-primary text-white py-3.5 rounded-xl font-semibold uppercase tracking-wider text-sm hover:bg-primary-dark transition-colors font-jost shadow-md">

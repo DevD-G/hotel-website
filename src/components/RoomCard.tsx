@@ -57,6 +57,7 @@ export default function RoomCard({ room, slug }: { room: RoomType; slug: string 
   const [modalIndex, setModalIndex] = useState(0);
   const touchStart = useRef(0);
   const touchEnd = useRef(0);
+  const modalTouchStart = useRef(0);
 
   const photos = room.photos;
   const prevPhoto = () => setPhotoIndex((p) => (p === 0 ? photos.length - 1 : p - 1));
@@ -224,8 +225,20 @@ export default function RoomCard({ room, slug }: { room: RoomType; slug: string 
             </button>
           </div>
 
-          {/* Main image */}
-          <div className="flex-1 flex items-center justify-center px-4 relative" onClick={(e) => e.stopPropagation()}>
+          {/* Main image — swipeable */}
+          <div
+            className="flex-1 flex items-center justify-center px-4 relative"
+            onClick={(e) => e.stopPropagation()}
+            onTouchStart={(e) => { modalTouchStart.current = e.touches[0].clientX; }}
+            onTouchEnd={(e) => {
+              const diff = modalTouchStart.current - e.changedTouches[0].clientX;
+              if (Math.abs(diff) > 50) {
+                diff > 0
+                  ? setModalIndex((p) => (p + 1) % photos.length)
+                  : setModalIndex((p) => (p === 0 ? photos.length - 1 : p - 1));
+              }
+            }}
+          >
             <button
               onClick={() => setModalIndex((p) => (p === 0 ? photos.length - 1 : p - 1))}
               className="absolute left-2 sm:left-4 md:left-8 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"

@@ -27,14 +27,14 @@ const propertyRooms: Record<string, { label: string; rooms: RoomOption[] }> = {
     rooms: [
       {
         name: '1RK Deluxe', price: '₹2,500',
-        photos: [{ num: 44, label: 'S51 1RK Deluxe' }, { num: 42, label: 'S51 Room' }, { num: 41, label: 'S51 Kitchen' }],
+        photos: [{ num: 44, label: 'S51 1RK Deluxe Room' }],
         bedType: 'Queen Bed', roomSize: '220 sq ft', maxGuests: 2,
         features: ['Free WiFi', 'Kitchenette', 'Smart LED TV', 'AC', 'Work Desk', 'Attached Bath'],
         breakfast: { included: false, addOnPrice: '₹250' },
       },
       {
         name: '1RK Studio with Sofa', price: '₹4,500',
-        photos: [{ num: 45, label: 'S51 Studio' }, { num: 42, label: 'S51 Room' }, { num: 41, label: 'S51 Kitchen' }, { num: 43, label: 'S51 Living' }],
+        photos: [{ num: 45, label: 'S51 Studio Room' }, { num: 42, label: 'S51 Studio - Another View' }],
         bedType: 'King Bed', roomSize: '380 sq ft', maxGuests: 3,
         features: ['Free WiFi', 'Kitchenette', 'Living Area', 'Sofa', 'Smart LED TV', 'AC', 'Work Desk', 'Washer'],
         breakfast: { included: true },
@@ -47,14 +47,14 @@ const propertyRooms: Record<string, { label: string; rooms: RoomOption[] }> = {
     rooms: [
       {
         name: 'Comfort Room', price: '₹2,200',
-        photos: [{ num: 37, label: 'S46 Comfort' }, { num: 34, label: 'S46 Interior' }, { num: 33, label: 'S46 Reception' }],
+        photos: [{ num: 37, label: 'S46 Comfort Room' }, { num: 34, label: 'S46 Comfort Room - Interior' }],
         bedType: 'Queen Bed', roomSize: '200 sq ft', maxGuests: 2,
         features: ['Free WiFi', 'Smart LED TV', 'AC', 'Attached Bath', 'Coffee Maker'],
         breakfast: { included: false, addOnPrice: '₹200' },
       },
       {
         name: 'Deluxe Residential', price: '₹3,200',
-        photos: [{ num: 38, label: 'S46 Deluxe' }, { num: 34, label: 'S46 Room' }, { num: 35, label: 'S46 Rooftop' }],
+        photos: [{ num: 38, label: 'S46 Deluxe Residential Room' }],
         bedType: 'King Bed', roomSize: '300 sq ft', maxGuests: 3,
         features: ['Free WiFi', 'Smart LED TV', 'AC', 'Balcony', 'Work Desk', 'Private Bathroom', 'Coffee Maker'],
         breakfast: { included: true },
@@ -67,14 +67,14 @@ const propertyRooms: Record<string, { label: string; rooms: RoomOption[] }> = {
     rooms: [
       {
         name: 'Standard Room', price: '₹2,500',
-        photos: [{ num: 51, label: 'S42 Standard' }, { num: 49, label: 'S42 Room' }, { num: 48, label: 'S42 Lobby' }],
+        photos: [{ num: 51, label: 'S42 Standard Room' }, { num: 49, label: 'S42 Standard Room - Another View' }],
         bedType: 'Queen Bed', roomSize: '220 sq ft', maxGuests: 2,
         features: ['Free WiFi', 'Smart LED TV', 'AC', 'Work Desk', 'Attached Bath'],
         breakfast: { included: false, addOnPrice: '₹250' },
       },
       {
         name: 'Deluxe Room', price: '₹3,500',
-        photos: [{ num: 52, label: 'S42 Deluxe' }, { num: 50, label: 'S42 Interior' }, { num: 47, label: 'S42 Terrace' }],
+        photos: [{ num: 52, label: 'S42 Deluxe Room' }, { num: 50, label: 'S42 Deluxe Room - Interior' }],
         bedType: 'King Bed', roomSize: '320 sq ft', maxGuests: 3,
         features: ['Free WiFi', 'Smart LED TV', 'AC', 'Work Desk', 'Terrace Access', 'Private Bathroom', 'Mini Fridge'],
         breakfast: { included: true },
@@ -87,21 +87,21 @@ const propertyRooms: Record<string, { label: string; rooms: RoomOption[] }> = {
     rooms: [
       {
         name: 'Standard Room', price: '₹2,500',
-        photos: [{ num: 29, label: 'S45 Standard' }, { num: 25, label: 'S45 Lobby' }, { num: 28, label: 'S45 Corridor' }],
+        photos: [{ num: 29, label: 'S45 Standard Room' }],
         bedType: 'Queen Bed', roomSize: '200 sq ft', maxGuests: 2,
         features: ['Free WiFi', 'Smart LED TV', 'AC', 'Attached Bath', 'Coffee Maker'],
         breakfast: { included: false, addOnPrice: '₹250' },
       },
       {
         name: 'Deluxe Room', price: '₹3,500',
-        photos: [{ num: 30, label: 'S45 Deluxe' }, { num: 25, label: 'S45 Lobby' }, { num: 27, label: 'S45 Rooftop' }],
+        photos: [{ num: 30, label: 'S45 Deluxe Room' }],
         bedType: 'King Bed', roomSize: '280 sq ft', maxGuests: 2,
         features: ['Free WiFi', 'Smart LED TV', 'AC', 'Mini Fridge', 'Work Desk', 'Private Bathroom'],
         breakfast: { included: true },
       },
       {
         name: 'Premium Suite', price: '₹5,000',
-        photos: [{ num: 31, label: 'S45 Suite' }, { num: 30, label: 'S45 Deluxe' }, { num: 27, label: 'S45 Rooftop' }, { num: 26, label: 'S45 Banquet' }],
+        photos: [{ num: 31, label: 'S45 Premium Suite' }],
         bedType: 'King Bed', roomSize: '400 sq ft', maxGuests: 3,
         features: ['Free WiFi', 'Smart LED TV', 'AC', 'Living Area', 'Mini Bar', 'City View', 'Work Desk', 'Private Bathroom'],
         breakfast: { included: true },
